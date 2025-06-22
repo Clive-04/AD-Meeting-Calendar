@@ -4,15 +4,18 @@ loadEnv();
 
 $host = getenv('POSTGRES_HOST');
 $port = getenv('POSTGRES_PORT');
-$dbname = getenv('POSTGRES_DB');
-$user = getenv('POSTGRES_USER');
+$username = getenv('POSTGRES_USER');
 $password = getenv('POSTGRES_PASSWORD');
+$dbname = getenv('POSTGRES_DB');
 
-$connStr = "host=$host port=$port dbname=$dbname user=$user password=$password";
-$conn = pg_connect($connStr);
+$conn_string = "host=$host port=$port dbname=$dbname user=$username password=$password";
 
-if (!$conn) {
-    echo "❌ Connection Failed: " . pg_last_error($conn);
-    exit;
+$dbconn = pg_connect($conn_string);
+
+if (!$dbconn) {
+    echo "❌ Connection Failed: " . (pg_last_error() ?: "Unknown error") . "<br>";
+    exit();
+} else {
+    echo "✔️ PostgreSQL Connection<br>";
+    pg_close($dbconn);
 }
-echo "✅ PostgreSQL Connection";
