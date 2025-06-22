@@ -4,7 +4,7 @@ CREATE TABLE IF NOT EXISTS tasks (
     description TEXT,
     status VARCHAR(50) DEFAULT 'pending',
     due_date DATE,
-    user_id INT,        -- The assignee
-    project_id INT,     -- The project this task belongs to
+    user_id INTEGER REFERENCES users(id),
+    project_id INTEGER REFERENCES projects(id),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
