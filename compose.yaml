@@ -27,7 +27,7 @@ services:
     ports:
       - "27111:27017"
     volumes:
-      - web-app-php-mongodb:/data/db/mongodb
+      - ad-meeting-calendar-mongodb:/data/db/mongodb
 
   postgresql:
     image: postgres:15
