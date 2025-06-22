@@ -1,11 +1,11 @@
 CREATE TABLE IF NOT EXISTS users (
-    id SERIAL PRIMARY KEY,
-    username VARCHAR(50) UNIQUE NOT NULL,
-    email VARCHAR(100) UNIQUE NOT NULL,
-    password_hash TEXT NOT NULL,
-    first_name VARCHAR(50),
-    last_name VARCHAR(50),
-    role_id INT REFERENCES roles(id),
-    group_id INT REFERENCES groups(id),
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    id int NOT NULL PRIMARY KEY,
+    username varchar(50) NOT NULL,
+    email varchar(100) NOT NULL,
+    password_hash text NOT NULL,
+    first_name varchar(50),
+    last_name varchar(50),
+    role_id int,
+    group_id int,
+    created_at timestamp DEFAULT CURRENT_TIMESTAMP NOT NULL
 );
