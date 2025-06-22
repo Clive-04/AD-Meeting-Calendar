@@ -1,19 +1,18 @@
 <?php
+include_once(__DIR__ . '/../utils/envSetter.util.php');
+loadEnv();
 
-$host = "host.docker.internal";
-$port = "5112";
-$username = "user";
-$password = "password";
-$dbname = "cliveDb";
+$host = getenv('POSTGRES_HOST');
+$port = getenv('POSTGRES_PORT');
+$dbname = getenv('POSTGRES_DB');
+$user = getenv('POSTGRES_USER');
+$password = getenv('POSTGRES_PASSWORD');
 
-$conn_string = "host=$host port=$port dbname=$dbname user=$username password=$password";
+$connStr = "host=$host port=$port dbname=$dbname user=$user password=$password";
+$conn = pg_connect($connStr);
 
-$dbconn = pg_connect($conn_string);
-
-if (!$dbconn) {
-    echo "❌ Connection Failed: ", pg_last_error() . "  <br>";
-    exit();
-} else {
-    echo "✔️ PostgreSQL Connection  <br>";
-    pg_close($dbconn);
+if (!$conn) {
+    echo "❌ Connection Failed: " . pg_last_error($conn);
+    exit;
 }
+echo "✅ PostgreSQL Connection";
