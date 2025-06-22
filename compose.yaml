@@ -7,8 +7,8 @@ services:
       - "8000:8000"
     develop:
       watch:
-        - path: .
-          target: /var/www/html/.env
+        - path: ../.env
+          target: /var/www/html
           action: sync
         - path: ./composer.json
           action: rebuild
