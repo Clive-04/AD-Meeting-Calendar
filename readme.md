@@ -54,22 +54,15 @@
 
 ## Overview
 
-<!-- TODO: To be changed -->
-<!-- The following are just sample -->
-
 Description of the project in details.
 
 ### Key Components
-
-<!-- TODO: List of Key Components -->
-<!-- The following are just sample -->
 
 - Authentication & Authorization
 - CRUD Operations for Invetory System
 
 ### Technology
 
-<!-- TODO: List of Technology Used -->
 #### Language
 ![HTML](https://img.shields.io/badge/HTML-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS](https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&logo=css3&logoColor=white)
@@ -150,8 +143,6 @@ AD-ProjectName
 > The following should be renamed: name.css, name.js, name.jpeg/.jpg/.webp/.png, name.component.php(but not the part of the `component.php`), Name.utils.php(but not the part of the `utils.php`)
 
 ## Resources
-
-<!-- TODO: Add References -->
 
 | Title        | Purpose                                                                       | Link          |
 | ------------ | ----------------------------------------------------------------------------- | ------------- |
