@@ -1,25 +1,19 @@
 <?php
-include_once(__DIR__ . '/../utils/envSetter.util.php');
-loadEnv();
+require_once _DIR_ . '/../utils/envSetter.util.php';
+$host = $pgConfig['host'];
+$port = $pgConfig['port'];
+$username = $pgConfig['user'];
+$password = $pgConfig['pass'];
+$dbname = $pgConfig['db'];
 
-$host = getenv('PG_HOST');
-$port = getenv('PG_PORT');
-$dbname = getenv('PG_DB');
-$user = getenv('PG_USER');
-$password = getenv('PG_PASS');
+$conn_string = "host=$host port=$port dbname=$dbname user=$username password=$password";
 
-if (!$host || !$port || !$dbname || !$user || !$password) {
-    echo "❌ PostgreSQL ENV values are missing or invalid.<br>";
-    exit;
-}
-
-$conn_string = "host=$host port=$port dbname=$dbname user=$user password=$password";
 $dbconn = pg_connect($conn_string);
 
 if (!$dbconn) {
-    echo "❌ Connection Failed: " . (pg_last_error() ?: "Unknown error") . "<br>";
+    echo "❌ Connection Failed: ", pg_last_error() . "  <br>";
     exit();
+} else {
+    echo "✔️ PostgreSQL Connection  <br>";
+    pg_close($dbconn);
 }
-
-echo "✔️ PostgreSQL Connection<br>";
-pg_close($dbconn);
