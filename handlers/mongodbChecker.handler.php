@@ -4,6 +4,11 @@ loadEnv();
 
 $mongoUri = getenv('MONGO_URI');
 
+if (!$mongoUri) {
+    echo "❌ MongoDB URI not found in .env<br>";
+    exit;
+}
+
 try {
     $mongo = new MongoDB\Driver\Manager($mongoUri);
 
