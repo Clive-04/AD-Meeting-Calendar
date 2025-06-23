@@ -1,6 +1,8 @@
 <?php
 declare(strict_types=1);
 
+define('UTILS_PATH', __DIR__);
+
 // 1) Composer autoload
 require 'vendor/autoload.php';
 
@@ -8,7 +10,7 @@ require 'vendor/autoload.php';
 require 'bootstrap.php';
 
 // 3) envSetter
-require_once __DIR__ . '/envSetter.util.php';
+require_once UTILS_PATH . '/envSetter.util.php';
 
 // ——— Connect to PostgreSQL ———
 $dsn = "pgsql:host={$pgConfig['host']};port={$pgConfig['port']};dbname={$pgConfig['db']}";
