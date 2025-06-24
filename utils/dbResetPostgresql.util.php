@@ -1,13 +1,11 @@
 <?php
 declare(strict_types=1);
 
-define('UTILS_PATH', __DIR__);
-
-// 1) Composer autoload
-require 'vendor/autoload.php';
-
-// 2) Composer bootstrap
+// 1) Composer bootstrap
 require 'bootstrap.php';
+
+// 2) Composer autoload
+require 'vendor/autoload.php';
 
 // 3) envSetter
 require_once UTILS_PATH . '/envSetter.util.php';
