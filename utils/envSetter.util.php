@@ -1,6 +1,6 @@
 <?php
 
-require_once UTILS_PATH . 'autoload.php';
+require_once VENDOR_PATH . 'autoload.php';
 
 $dotenv = Dotenv\Dotenv::createImmutable(BASE_PATH);
 $dotenv->load();
