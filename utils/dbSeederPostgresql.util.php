@@ -30,7 +30,7 @@ $pdo->exec($sql);
 echo "✔️  Table created from user.model.sql\n";
 
 // 6) Load Dummy Data
-$users = require DUMMIES_PATH . '/users.staticData.php';
+$users = require_once BASE_PATH . '/staticData/dummies/users.staticData.php';
 
 // 7) Seeding Logic
 echo "🌱 Seeding users...\n";
