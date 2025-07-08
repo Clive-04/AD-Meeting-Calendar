@@ -19,7 +19,7 @@ $pdo = new PDO($dsn, $pgConfig['user'], $pgConfig['pass'], [
 echo "✅ Connected to PostgreSQL\n";
 
 // 5) Read and apply schema
-$sqlPath = __DIR__ . '/../database/user.model.sql';
+$sqlPath = __DIR__ . '/../database/users.model.sql';
 $sql = file_get_contents($sqlPath);
 if ($sql === false) {
   throw new RuntimeException("❌ Could not read $sqlPath");
