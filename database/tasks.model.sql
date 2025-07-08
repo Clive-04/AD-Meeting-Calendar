@@ -1,10 +1,9 @@
 CREATE TABLE IF NOT EXISTS tasks (
-    id SERIAL PRIMARY KEY,
-    title VARCHAR(100) NOT NULL,
-    description TEXT,
-    status VARCHAR(50) DEFAULT 'pending',
-    due_date DATE,
-    user_id INTEGER REFERENCES users(id),
-    project_id INTEGER REFERENCES projects(id),
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    id uuid NOT NULL PRIMARY KEY DEFAULT gen_random_uuid(),
+    project_id uuid NOT NULL REFERENCES projects (id) ON DELETE CASCADE,
+    assigned_to uuid REFERENCES users (id) ON DELETE SET NULL,
+    title varchar(255) NOT NULL,
+    description text,
+    status varchar(50) DEFAULT 'pending',
+    due_date date
 );

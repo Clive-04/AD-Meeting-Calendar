@@ -1,6 +1,7 @@
 CREATE TABLE IF NOT EXISTS projects (
-    id SERIAL PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
-    description TEXT,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    id uuid NOT NULL PRIMARY KEY DEFAULT gen_random_uuid(),
+    name varchar(255) NOT NULL,
+    description text,
+    start_date date,
+    end_date date
 );
