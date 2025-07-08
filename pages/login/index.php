@@ -1,13 +1,40 @@
-<form method="POST" action="/handlers/auth.handler.php">
-  <label for="username">Username</label>
-  <input id="username" name="username" type="text" required class="input">
+<?php
+require_once '../../utils/auth.util.php';
+Auth::init();
+if (Auth::check()) {
+    header("Location: /dashboard/index.php");
+    exit;
+}
+?>
 
-  <label for="password">Password</label>
-  <input id="password" name="password" type="password" required class="input">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login | Meeting Calendar</title>
+  <link rel="stylesheet" href="login.css"> <!-- External CSS linked here -->
+</head>
+<body>
 
-  <button type="submit">Login</button>
+  <form class="login-container" action="/handlers/auth.handler.php" method="POST">
+    <h2>Login</h2>
 
-  <?php if (isset($_GET['error'])): ?>
-    <p style="color:red;">Invalid credentials.</p>
-  <?php endif; ?>
-</form>
+    <div class="input-group">
+      <label for="username">Username</label>
+      <input type="text" name="username" id="username" required>
+    </div>
+
+    <div class="input-group">
+      <label for="password">Password</label>
+      <input type="password" name="password" id="password" required>
+    </div>
+
+    <button class="btn" type="submit">Login</button>
+
+    <?php if (isset($_GET['error'])): ?>
+      <div class="error"><?= htmlspecialchars($_GET['error']) ?></div>
+    <?php endif; ?>
+  </form>
+
+</body>
+</html>
