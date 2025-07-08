@@ -1,4 +1,4 @@
-/* General Reset */
+/* === General Reset === */
 * {
   margin: 0;
   padding: 0;
@@ -6,60 +6,46 @@
   font-family: 'Segoe UI', sans-serif;
 }
 
+/* === Layout === */
 body {
   background-color: #f4f6f9;
   color: #333;
   min-height: 100vh;
 }
 
-/* Container */
-.container {
-  max-width: 1200px;
-  margin: 60px auto;
-  padding: 30px;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-}
-
-/* Header */
 .header {
   background-color: #007bff;
   padding: 20px;
   color: white;
   text-align: center;
   font-size: 1.5em;
-  border-radius: 0 0 12px 12px;
+  font-weight: bold;
 }
 
-/* Buttons */
+.container {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 30px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+/* === Button === */
 .btn {
   display: inline-block;
-  background: #007bff;
+  margin-top: 20px;
+  padding: 12px 20px;
+  background-color: #007bff;
   color: white;
-  padding: 10px 18px;
   border: none;
   border-radius: 6px;
   text-decoration: none;
   font-weight: bold;
-  margin-top: 10px;
+  transition: background 0.3s ease;
 }
 
 .btn:hover {
-  background: #0056b3;
-}
-
-/* Dashboard specific */
-.dashboard-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.card {
-  padding: 20px;
-  background: #f8f9fa;
-  border-radius: 10px;
-  margin-top: 20px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  background-color: #0056b3;
 }
