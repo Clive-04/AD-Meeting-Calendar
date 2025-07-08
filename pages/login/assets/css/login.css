@@ -55,8 +55,28 @@ h2 {
   border: none;
   border-radius: 6px;
   font-weight: bold;
+  font-size: 16px;         /* ✅ Set consistent font size */
   cursor: pointer;
   transition: background 0.3s ease;
+  margin-top: 10px;
+}
+
+.btn2 {
+  display: block;                /* Ensures it's treated like a button */
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  background-color: #6c757d;     /* Gray look to contrast the blue login */
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.btn2:hover {
+  background-color: #5a6268;
 }
 
 .btn:hover {
