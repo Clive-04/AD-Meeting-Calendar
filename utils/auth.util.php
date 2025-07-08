@@ -13,26 +13,33 @@ class Auth
 
     // 🔐 Login function
     public static function login(PDO $pdo, string $username, string $password): bool
-    {
-        self::init();
+{
+    self::init();
 
-        $stmt = $pdo->prepare("SELECT * FROM users WHERE username = :username LIMIT 1");
-        $stmt->execute([':username' => $username]);
-        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+    $stmt = $pdo->prepare("SELECT * FROM users WHERE username = :username");
+    $stmt->execute(['username' => $username]);
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        if ($user && password_verify($password, $user['password'])) {
-            // Set session data
-            $_SESSION['user'] = [
-                'id'        => $user['id'],
-                'username'  => $user['username'],
-                'role'      => $user['role'],
-                'full_name' => $user['first_name'] . ' ' . $user['last_name'],
-            ];
-            return true;
-        }
-
+    if (!$user) {
+        echo "❌ Username not found";
         return false;
     }
+
+    if (!password_verify($password, $user['password'])) {
+        echo "❌ Password incorrect";
+        return false;
+    }
+
+    $_SESSION['user'] = [
+        'id' => $user['id'],
+        'username' => $user['username'],
+        'full_name' => $user['first_name'] . ' ' . $user['last_name'],
+        'role' => $user['role'],
+    ];
+
+    return true;
+}
+
 
     // 🙋 Get the current user
     public static function user(): ?array
