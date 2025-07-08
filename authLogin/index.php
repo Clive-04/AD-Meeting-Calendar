@@ -1,6 +1,7 @@
 <?php
 require_once '../utils/envSetter.util.php';
 require_once '../utils/auth.util.php';
+require_once '../handlers/login.handler.php';
 
 try {
     $dsn = "pgsql:host={$pgConfig['host']};port={$pgConfig['port']};dbname={$pgConfig['db']}";
