@@ -1,22 +1,34 @@
 <?php
-    ini_set('display_errors', 1);
-    error_reporting(E_ALL);
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>System Status</title>
+  <meta charset="UTF-8">
+  <title>System Status | AD-Meeting-Calendar</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
-  <h1>Welcome to AD-Meeting-Calendar</h1>
-  <p>Below are the database connection checks:</p>
 
-  <div>
-    <?php include_once "handlers/mongodbChecker.handler.php"; ?>
-    <?php include_once "handlers/postgreChecker.handler.php"; ?>
-
-    <a href="/pages/login/index.php">Go to Login Page</a>
+  <div class="header">
+    AD Meeting Calendar
   </div>
+
+  <div class="container">
+    <h2>✅ System Status Check</h2>
+    <p>Below are the results of your database connection checks:</p>
+
+    <div class="card">
+      <?php include_once "handlers/mongodbChecker.handler.php"; ?>
+      <?php include_once "handlers/postgreChecker.handler.php"; ?>
+    </div>
+
+    <div style="margin-top: 30px;">
+      <a href="/pages/login/index.php" class="btn">Go to Login Page</a>
+    </div>
+  </div>
+
 </body>
 </html>
