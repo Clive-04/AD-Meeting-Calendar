@@ -10,8 +10,6 @@ require 'vendor/autoload.php';
 // 3) envSetter
 require_once UTILS_PATH . '/envSetter.util.php';
 
-define('DUMMIES_PATH', __DIR__ . '/../staticData/dummies');
-
 // 4) PostgreSQL Connection
 $dsn = "pgsql:host={$pgConfig['host']};port={$pgConfig['port']};dbname={$pgConfig['db']}";
 $pdo = new PDO($dsn, $pgConfig['user'], $pgConfig['pass'], [
@@ -30,7 +28,7 @@ $pdo->exec($sql);
 echo "✔️  Table created from user.model.sql\n";
 
 // 6) Load Dummy Data
-$users = require_once BASE_PATH . '/staticData/dummies/users.staticData.php';
+$users = require_once DUMMIES_PATH . 'users.staticData.php';
 
 // 7) Seeding Logic
 echo "🌱 Seeding users...\n";
