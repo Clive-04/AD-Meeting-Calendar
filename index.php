@@ -16,7 +16,7 @@
     <?php include_once "handlers/mongodbChecker.handler.php"; ?>
     <?php include_once "handlers/postgreChecker.handler.php"; ?>
 
-    <a href="/pages/login/">Go to Login Page</a>
+    <a href="/pages/login/index.php">Go to Login Page</a>
   </div>
 </body>
 </html>
