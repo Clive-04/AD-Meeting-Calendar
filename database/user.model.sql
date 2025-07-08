@@ -1,9 +1,10 @@
+DROP TABLE IF EXISTS users;
+
 CREATE TABLE IF NOT EXISTS users (
-    id uuid NOT NULL PRIMARY KEY DEFAULT gen_random_uuid(),
-    first_name varchar(225) NOT NULL,
-    middle_name varchar(225),
-    last_name varchar(225) NOT NULL,
-    username varchar(225) NOT NULL UNIQUE,
-    password varchar(225) NOT NULL,
-    role varchar(225) NOT NULL
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(50) NOT NULL,
+    role VARCHAR(20) NOT NULL,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    password VARCHAR(255) NOT NULL  -- ✅ Make sure this line exists!
 );
