@@ -31,6 +31,8 @@ if (Auth::check()) {
 
     <button class="btn" type="submit">Login</button>
 
+    <a href="/index.php" class="btn2">← Back to Home</a>
+
     <?php if (isset($_GET['error'])): ?>
       <div class="error"><?= htmlspecialchars($_GET['error']) ?></div>
     <?php endif; ?>
