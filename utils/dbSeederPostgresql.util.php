@@ -10,30 +10,44 @@ require 'vendor/autoload.php';
 // 3) envSetter
 require_once UTILS_PATH . '/envSetter.util.php';
 
-// ——— Connect to PostgreSQL ———
+define('DUMMIES_PATH', __DIR__ . '/../staticData/dummies');
+
+// 4) PostgreSQL Connection
 $dsn = "pgsql:host={$pgConfig['host']};port={$pgConfig['port']};dbname={$pgConfig['db']}";
 $pdo = new PDO($dsn, $pgConfig['user'], $pgConfig['pass'], [
   PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
 ]);
 
-// Just indicator it was working
-echo "Applying schema from database/user.model.sql…\n";
-$sql = file_get_contents('database/user.model.sql');
+echo "✅ Connected to PostgreSQL\n";
 
-// Another indicator but for failed creation
+// 5) Read and apply schema
+$sqlPath = __DIR__ . '/../database/user.model.sql';
+$sql = file_get_contents($sqlPath);
 if ($sql === false) {
-  throw new RuntimeException("Could not read database/user.model.sql");
-} else {
-  echo "✔️  Creation Success from database/user.model.sql\n";
+  throw new RuntimeException("❌ Could not read $sqlPath");
 }
-
-// Execute SQL
 $pdo->exec($sql);
+echo "✔️  Table created from user.model.sql\n";
 
-// Cleanup
-echo "Truncating tables…\n";
-foreach (['users'] as $table) {
-  $pdo->exec("TRUNCATE TABLE {$table} RESTART IDENTITY CASCADE;");
+// 6) Load Dummy Data
+$users = require DUMMIES_PATH . '/users.staticData.php';
+
+// 7) Seeding Logic
+echo "🌱 Seeding users...\n";
+
+$stmt = $pdo->prepare("
+  INSERT INTO users (username, role, first_name, last_name, password)
+  VALUES (:username, :role, :fn, :ln, :pw)
+");
+
+foreach ($users as $u) {
+  $stmt->execute([
+    ':username' => $u['username'],
+    ':role'     => $u['role'],
+    ':fn'       => $u['first_name'],
+    ':ln'       => $u['last_name'],
+    ':pw'       => password_hash($u['password'], PASSWORD_DEFAULT),
+  ]);
 }
 
-echo "✅ Database reset complete.\n";
+echo "✅ Seeding complete.\n";
