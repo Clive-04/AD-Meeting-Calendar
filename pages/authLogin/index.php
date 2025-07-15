@@ -1,7 +1,6 @@
 <?php
-require_once '../utils/envSetter.util.php';
-require_once '../utils/auth.util.php';
-require_once '../handlers/login.handler.php';
+require_once UTILS_PATH . 'auth.util.php';
+require_once HANDLERS_PATH . 'login.handler.php';
 
 try {
     $dsn = "pgsql:host={$pgConfig['host']};port={$pgConfig['port']};dbname={$pgConfig['db']}";
@@ -16,7 +15,7 @@ $username = $_POST['username'] ?? '';
 $password = $_POST['password'] ?? '';
 
 if (Auth::login($pdo, $username, $password)) {
-    header('Location: /dashboard/index.php');
+    header('Location: /pages/dashboard/index.php');
     exit;
 } else {
     header('Location: /pages/login/index.php?error=invalid');

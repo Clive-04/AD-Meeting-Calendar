@@ -1,8 +1,9 @@
 <?php
-require_once '../../utils/auth.util.php';
+require_once UTILS_PATH . 'auth.util.php';
+
 Auth::init();
 if (Auth::check()) {
-    header("Location: /dashboard/index.php");
+    header("Location: /pages/dashboard/index.php");
     exit;
 }
 ?>
@@ -12,7 +13,7 @@ if (Auth::check()) {
 <head>
   <meta charset="UTF-8">
   <title>Login | Meeting Calendar</title>
-  <link rel="stylesheet" href="assets/css/login.css"> <!-- External CSS linked here -->
+  <link rel="stylesheet" href="assets/css/login.css">
 </head>
 <body>
 
