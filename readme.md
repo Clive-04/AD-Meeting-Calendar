@@ -12,7 +12,7 @@
 </div>
 
 <div align="center">
-  This is my activity setup for AD-Meeting-Calendar.
+  A full-featured Meeting Calendar system built with PHP, PostgreSQL, MongoDB, and more. Includes user authentication, dashboard layout, status checkers, and static data for task & project management.
 </div>
 
 <br />
