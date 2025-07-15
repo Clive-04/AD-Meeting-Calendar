@@ -1,5 +1,5 @@
 <?php
-require_once '../utils/auth.util.php';
+require_once UTILS_PATH . 'auth.util.php';
 
 Auth::logout();
 
