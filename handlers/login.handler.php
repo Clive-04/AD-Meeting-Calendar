@@ -1,6 +1,6 @@
 <?php
-require_once '../utils/envSetter.util.php';
-require_once '../utils/auth.util.php';
+require_once UTILS_PATH . '/envSetter.util.php';
+require_once UTILS_PATH . '/auth.util.php';
 
 $username = $_POST['username'] ?? '';
 $password = $_POST['password'] ?? '';
