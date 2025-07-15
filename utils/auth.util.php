@@ -12,7 +12,7 @@ class Auth
     }
 
     // 🔐 Login function
-    public static function login(PDO $pdo, string $username, string $password): bool
+    public static function login(PDO $pdo, string $username, string $password): bool|string
 {
     self::init();
 
@@ -21,13 +21,11 @@ class Auth
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if (!$user) {
-        echo "❌ Username not found";
-        return false;
+        return 'username'; // Username not found
     }
 
     if (!password_verify($password, $user['password'])) {
-        echo "❌ Password incorrect";
-        return false;
+        return 'password'; // Password incorrect
     }
 
     $_SESSION['user'] = [
