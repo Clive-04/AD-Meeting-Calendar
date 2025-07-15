@@ -54,32 +54,35 @@
 
 ## Overview
 
-Description of the project in details.
+A project created to manage authenticated user-based meetings, with tasks, projects, dashboards, login layouts, system checks, and static data integration.
 
 ### Key Components
 
-- Authentication & Authorization
-- CRUD Operations for Invetory System
+- 🔐 Authentication & Session Management
+- 📋 CRUD Operations for Users, Tasks, Projects
+- 📁 Static Data for `tasks`, `projects`, and `project_users`
+- ⚙️ System Status Checker (PostgreSQL & MongoDB)
+- 🧩 Component-based layout (e.g. dashboard, login)
+- 🧠 Error handling and redirect logic
+- 📄 Login error display with `/errors/login.error.php`
 
 ### Technology
 
 #### Language
 ![HTML](https://img.shields.io/badge/HTML-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS](https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=white)
 ![PHP](https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white)
 
 #### Framework/Library
-![CodeIgniter](https://img.shields.io/badge/CodeIgniter-EF4223?style=for-the-badge&logo=codeigniter&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
 ![Bootstrap](https://img.shields.io/badge/Bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white)
 
 #### Databases
-![MySQL](https://img.shields.io/badge/MySQL-00758F?style=for-the-badge&logo=mysql&logoColor=white)
 ![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white)
 
 #### Deployment
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 ![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
 
 ## Rules, Practices and Principles
@@ -146,7 +149,8 @@ AD-ProjectName
 
 | Title        | Purpose                                                                       | Link          |
 | ------------ | ----------------------------------------------------------------------------- | ------------- |
-| Sample Title | Sample purpose would be here like this and this is the example of what it is. | trykolang.com |
-| Sample Title | Sample purpose would be here like this and this is the example of what it is. | trykolang.com |
-| Sample Title | Sample purpose would be here like this and this is the example of what it is. | trykolang.com |
-| Sample Title | Sample purpose would be here like this and this is the example of what it is. | trykolang.com |
+| PHP PDO Docs | Secure DB handling with prepared statements | https://www.php.net/manual/en/book.pdo.php |
+| W3Schools PHP Sessions | For handling login sessions  | https://www.w3schools.com/php/php_sessions.asp |
+| PostgreSQL Docs | SQL schema, functions, types | https://www.postgresql.org/docs/ |
+| Docker Docs  | Containerization of services | https://docs.docker.com/ |
+| CSS Flexbox Guide  | Layout building guide for dashboard/status UI | https://css-tricks.com/snippets/css/a-guide-to-flexbox/ |
