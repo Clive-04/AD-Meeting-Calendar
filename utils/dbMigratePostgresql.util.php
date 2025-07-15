@@ -11,6 +11,9 @@ require 'vendor/autoload.php';
 require_once UTILS_PATH . '/envSetter.util.php';
 
 // ——— Connect to PostgreSQL ———
+if (PHP_OS_FAMILY === 'Windows' && $pgConfig['host'] === 'host.docker.internal') {
+    $pgConfig['host'] = 'localhost';
+}
 $dsn = "pgsql:host={$pgConfig['host']};port={$pgConfig['port']};dbname={$pgConfig['db']}";
 $pdo = new PDO($dsn, $pgConfig['user'], $pgConfig['pass'], [
   PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
